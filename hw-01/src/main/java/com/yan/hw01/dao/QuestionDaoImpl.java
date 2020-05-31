@@ -1,6 +1,5 @@
 package com.yan.hw01.dao;
 
-import com.yan.hw01.domain.Answer;
 import com.yan.hw01.domain.Question;
 import com.yan.hw01.util.CsvParser;
 
@@ -23,7 +22,6 @@ public class QuestionDaoImpl implements QuestionDao {
    }
 
    public List<Question> getQuestions() {
-
       return questions;
    }
 

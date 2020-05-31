@@ -5,11 +5,11 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="questionDao" class="com.yan.hw01.dao.QuestionDaoImpl">
-        <constructor-arg name="pathToFile" value="hw-01/src/main/resources/questionnaire/questions.csv"/>
+        <constructor-arg name="pathToFile" value="src/main/resources/questionnaire/questions.csv"/>
     </bean>
 
     <bean id="answerDao" class="com.yan.hw01.dao.AnswerDaoImpl">
-        <constructor-arg name="pathToFile" value="hw-01/src/main/resources/questionnaire/answers.csv"/>
+        <constructor-arg name="pathToFile" value="src/main/resources/questionnaire/answers.csv"/>
     </bean>
 
     <bean id="questionnaireService" class="com.yan.hw01.service.QuestionnaireServiceImpl">

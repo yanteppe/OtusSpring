@@ -5,8 +5,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class PrintQuestions {
    public static void main(String[] args) {
-      var context = new ClassPathXmlApplicationContext("/spring-context.xml");
-      var questionnaire = context.getBean(QuestionnaireServiceImpl.class);
-      questionnaire.getQuestions().forEach(System.out::println);
+      new ClassPathXmlApplicationContext("/spring-context.xml")
+            .getBean(QuestionnaireServiceImpl.class)
+            .getQuestions().forEach(System.out::println);
    }
 }
