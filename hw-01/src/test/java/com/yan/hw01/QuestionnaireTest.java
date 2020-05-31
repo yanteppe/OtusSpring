@@ -39,7 +39,7 @@ public class QuestionnaireTest {
    }
 
    @Test()
-   @DisplayName("Test method: getQuestionsById()")
+   @DisplayName("Test method: getQuestionById()")
    void getQuestionsByIdTest() {
       String expectedQuestion = "3, What is your birthday?";
       String actualQuestion = questionnaireService.getQuestionById(2).toString();
