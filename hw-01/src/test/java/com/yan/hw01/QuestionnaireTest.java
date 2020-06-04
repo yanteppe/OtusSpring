@@ -1,5 +1,6 @@
 package com.yan.hw01;
 
+import com.yan.hw01.domain.Question;
 import com.yan.hw01.service.QuestionnaireService;
 import com.yan.hw01.service.QuestionnaireServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,7 +36,7 @@ public class QuestionnaireTest {
       List<String> actualQuestions = new ArrayList<>();
       questionnaireService.getQuestions().forEach(question -> actualQuestions.add(question.toString()));
       assertEquals(expectedQuestions, actualQuestions);
-      actualQuestions.forEach(System.out::println);
+      questionnaireService.print(Question.class);
    }
 
    @Test()

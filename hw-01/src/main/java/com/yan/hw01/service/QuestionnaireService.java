@@ -15,5 +15,5 @@ public interface QuestionnaireService {
 
    List<Answer> getAnswers();
 
-   void print();
+   void print(Class clazz);
 }

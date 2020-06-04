@@ -9,26 +9,32 @@ import java.util.List;
 public class AnswerDaoImpl implements AnswerDao {
    private String pathToFile;
    private List<Answer> answers;
-   private CsvParser csvParser;
+   private final CsvParser csvParser;
 
    public AnswerDaoImpl(String pathToFile) {
       this.pathToFile = pathToFile;
       this.csvParser = new CsvParser();
-      convertRowToAnswer();
    }
 
-   public Answer getAnswerById(int id) {
+   public Answer getById(int id) {
+      if (answers == null) {
+         convertRowToAnswer();
+      }
       return answers.get(id);
    }
 
-   public List<Answer> getAnswers() {
+   public List<Answer> getAll() {
+      if (answers == null) {
+         convertRowToAnswer();
+      }
       return answers;
    }
 
    private void convertRowToAnswer() {
       answers = new ArrayList<>();
       for (String row : csvParser.parseFile(pathToFile)) {
-         answers.add(new Answer(row));
+         String[] split = row.split(", ");
+         answers.add(new Answer(Integer.parseInt(split[0]), split[1]));
       }
    }
 }

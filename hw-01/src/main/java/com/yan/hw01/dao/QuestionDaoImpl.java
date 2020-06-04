@@ -9,26 +9,32 @@ import java.util.List;
 public class QuestionDaoImpl implements QuestionDao {
    private String pathToFile;
    private List<Question> questions;
-   private CsvParser csvParser;
+   private final CsvParser csvParser;
 
    public QuestionDaoImpl(String pathToFile) {
       this.pathToFile = pathToFile;
       this.csvParser = new CsvParser();
-      convertRowToQuestion();
    }
 
-   public Question getQuestionById(int id) {
+   public Question getById(int id) {
+      if (questions == null) {
+         convertRowToQuestion();
+      }
       return questions.get(id);
    }
 
-   public List<Question> getQuestions() {
+   public List<Question> getAll() {
+      if (questions == null) {
+         convertRowToQuestion();
+      }
       return questions;
    }
 
    private void convertRowToQuestion() {
       questions = new ArrayList<>();
       for (String row : csvParser.parseFile(pathToFile)) {
-         questions.add(new Question(row));
+         String[] split = row.split(", ");
+         questions.add(new Question(Integer.parseInt(split[0]), split[1]));
       }
    }
 }
