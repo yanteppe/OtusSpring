@@ -14,4 +14,6 @@ public interface QuestionnaireService {
    Answer getAnswerById(int id);
 
    List<Answer> getAnswers();
+
+   void print();
 }

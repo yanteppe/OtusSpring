@@ -31,4 +31,9 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
    public List<Answer> getAnswers() {
       return answerDao.getAnswers();
    }
+
+   @Override
+   public void print() {
+
+   }
 }
